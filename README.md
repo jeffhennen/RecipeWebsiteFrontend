@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+#This is my Recipe Website Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is front end portion of the Recipe Website project which will be at HennenRecipes.com
 
-## Available Scripts
+With this frontend I am trying to make this as usable and readable as possible with the following Tech stack
+* Java
+* HTML
+* CSS
+* React.js
+* React Router
 
-In the project directory, you can run:
+This is going to be the front end that is going to be purely doing all the SPA related tasks.
 
-### `npm start`
+Currently there are a total of 5 base pages.
+* Home page
+* Recipes page
+* Add Recipe Page
+* Ingredients page
+* About page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#Home Page
+This is currently a work in progress trying to define what the home page contents are going to be.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#Recipes Page
+At this point this is going to be a page where you will be able to see all the current recipes in the database and have them displayed as clickable cards to navigate you to their corresponding page.
+This will eventually have a search bar which will then do a fetch for a list of ingredients that fit the criteria.
+The links will end up navigating you to a dynamic react route which will query that specific recipe id and then populate all the corresponding components which are as follows
+* Recipe_name
+* Description
+* Table of ingredients
+* recipe steps
+* recipe notes
 
-### `npm test`
+With these fields, you will be able to then update each of the corresponding fields and then do a update api call to update the recipe on the database or delete from the database.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#Add Recipe Page
+This has not yet been implemented yet but will be a page where you can create a new recipe by adding in the corresponding fields of the recipe
 
-### `npm run build`
+#Ingredients Page
+This is not yet implemented but thinking this will just be a large table of ingredients where you can then add to the table and then save it to the database. You will also be able to delete the ingredient if it is not being used in a recipe.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#About page
+this will have information about myself Jeffrey Hennen.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#Backend Link
+https://github.com/jeffhennen/RecipeWebsiteBackend
