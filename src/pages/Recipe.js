@@ -1,18 +1,21 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Recipe_Table from "../components/recipe/Recipe_Table";
-import Recipe_Header from "../components/recipe/Recipe_Header";
+import Recipe_Table from "../components/recipe/IngredientsTable";
+import Ingredient from "../components/recipe/Ingredient/Ingredient";
 
 
 export default function Recipe(){
+    
     const {id} = useParams();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState([]);
-    const [steps, setSteps] = useState([]);
+    // const [steps, setSteps] = useState([]);
     const [notes, setNotes] = useState([]);
     const [loading, setLoading] = useState(true); // New loading state
+
+
     
 
     const GETRECIPEENDPOINT = `http://Hennenapi.com:3000/api/recipes/${id}`
@@ -26,7 +29,7 @@ export default function Recipe(){
     
             setDescription(data.description);
             setIngredients(data.Recipe_Ingredient);
-            setSteps(data.steps);
+            // setSteps(data.steps);
             setNotes(data.notes);
             setName(data.name);
             setLoading(false); // Set loading to false once data is received
@@ -41,23 +44,23 @@ export default function Recipe(){
 
 
     if (loading) {
-        return <div>Loading...</div>; // Render a loading indicator if still loading
+        return <div>Loading...</div>; // Render loading indicator if still loading
     }
 
     return (
         
         <>
-            <Recipe_Header/>
+            {/* <Recipe_Header/> */}
             <Container className="p-5">
                 <Recipe_Table ingredientList={ingredients} setIngredients={setIngredients}/>
             </Container>
     
             <Container>
                 <Container>
-                    {steps}
+                    {/* {steps} */}
                 </Container>
                 <Container>
-                    {notes}
+                    {/* {notes} */}
                 </Container>
             </Container>
         </>

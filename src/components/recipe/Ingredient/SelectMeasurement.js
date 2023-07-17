@@ -1,6 +1,6 @@
 import { Form } from 'react-bootstrap';
 import Option from '../../Option'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function SelectMeasurement({selection, onChange}){
 
@@ -22,13 +22,16 @@ export default function SelectMeasurement({selection, onChange}){
         { label: 'Liter (l)', value: 'l' },
       ];
 
-    const tempOptions = measurements.map( (measurement, index) => {
+    useEffect( () => {
+
+        const tempOptions = measurements.map( (measurement, index) => {
         
-        return (
-            <Option key={index} value={measurement.value} label={measurement.label}/>
-        )
-    })
-    setOptions(tempOptions);
+            return (
+                <Option key={index} value={measurement.value} label={measurement.label}/>
+            )
+        })
+        setOptions(tempOptions);
+    }, []);
 
     const handleMeasurementChange = (event) => {
         const value = event.target.value;

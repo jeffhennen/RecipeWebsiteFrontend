@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form'
 export default function SelectIngredient({selection, onChange}){
 
     const [selectedValue, setSelectedValue] = useState(selection);
-    const [ingredients, setIngredients] = useState([]);
+    const [ingredients, setIngredients] = useState();
 
     const GETRECIPEENDPOINT = `http://Hennenapi.com:3000/api/Ingredients`
 

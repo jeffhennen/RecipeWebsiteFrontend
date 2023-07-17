@@ -6,7 +6,6 @@ import { useState } from "react";
 
 export default function Ingredient({index, measurementSelection, ingredientSelection, inputQuantity, onIngredientChange, onMeasurementChange, onQuantityChange, onClick}){
 
-    console.log("Inside Ingredient component")
     const [selectedMeasurement, setSelectedMeasurement] = useState(measurementSelection);
     const [selectedIngredient, setSelectedIngredient] = useState(ingredientSelection);
     const [quantityValue, setQuantityValue] = useState(inputQuantity);

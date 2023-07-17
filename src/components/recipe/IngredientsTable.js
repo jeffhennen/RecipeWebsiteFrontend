@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import Ingredient from "./Ingredient/Ingredient";
 
-export default function Recipe_Table({ingredientList, setIngredients}){
+export default function IngredientsTable({ingredientList, setIngredients}){
 
     console.log(ingredientList);
     const [ingredientComponents, setIngredientComponents] = useState([]);
