@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form'
 
 export default function SelectIngredient({selection, onChange}){
 
-    const [selectedValue, setSelectedValue] = useState(selection);
+    const [selectedValue, setSelectedValue] = useState(selection ? selection: null);
     const [ingredients, setIngredients] = useState();
 
     const GETRECIPEENDPOINT = `http://Hennenapi.com:3000/api/Ingredients`
@@ -23,6 +23,11 @@ export default function SelectIngredient({selection, onChange}){
             })
 
             setIngredients(ingredientOptions);
+
+            if(selectedValue == null){
+                setSelectedValue(ingredientOptions[0].props.value);
+                onChange(ingredientOptions[0].props.value);
+            }
         })
         .catch(error => {
           // Handle any errors
@@ -34,14 +39,14 @@ export default function SelectIngredient({selection, onChange}){
     const handleIngredientChange = (event) =>{
         const value = event.target.value;
 
-        selectedValue(value);
+        setSelectedValue(value);
         onChange(value);
     };
 
 
     return (
         <>
-            <Form.Select aria-label="Select Ingredient" value={selectedValue} onChange={handleIngredientChange}>
+            <Form.Select aria-label="Select Ingredient" value={selectedValue ? selectedValue: ''} onChange={handleIngredientChange}>
                 {ingredients}
             </Form.Select>
         </>

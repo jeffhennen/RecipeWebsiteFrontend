@@ -4,50 +4,66 @@ import SelectMeasurement from "./SelectMeasurement";
 import SelectIngredient from "./SelectIngredient";
 import { useState } from "react";
 
-export default function Ingredient({index, measurementSelection, ingredientSelection, inputQuantity, onIngredientChange, onMeasurementChange, onQuantityChange, onClick}){
+export default function Ingredient({
+  index,
+  measurementSelection,
+  ingredientSelection,
+  inputQuantity,
+  onIngredientChange,
+  onMeasurementChange,
+  onQuantityChange,
+  onClick
+}) {
+  const [selectedMeasurement, setSelectedMeasurement] = useState(measurementSelection ? measurementSelection : "");
+  const [selectedIngredient, setSelectedIngredient] = useState(ingredientSelection ? ingredientSelection : "");
+  const [quantityValue, setQuantityValue] = useState(inputQuantity ? inputQuantity : "");
 
-    const [selectedMeasurement, setSelectedMeasurement] = useState(measurementSelection);
-    const [selectedIngredient, setSelectedIngredient] = useState(ingredientSelection);
-    const [quantityValue, setQuantityValue] = useState(inputQuantity);
+  function handleButtonDelete() {
+    onClick(index);
+  }
 
+  const handleSelectedIngredientChange = (value) => {
+    setSelectedIngredient(value);
+    onIngredientChange(value, index);
+  };
 
+  const handleInputQuantityChange = (value) => {
+    setQuantityValue(value);
+    onQuantityChange(value, index);
+  };
 
-    function handleButtonDelete(){
+  const handleSelectedMeasurementChange = (value) => {
+    setSelectedMeasurement(value);
+    onMeasurementChange(value, index);
+  };
 
-        onClick();
-    }
-
-    const handleSelectedIngredientChange = (event) => {
-        const value = event.target.value;
-
-        setSelectedIngredient(value)
-        onIngredientChange(value);
-    };
-
-    const handleInputQuantityChange = (event) => {
-        const value = event.target.value;
-
-        setQuantityValue(value)
-        onQuantityChange(value);
-    };
-
-    const handleSelectedMeasurementChange = (event) => {
-        const value = event.target.value;
-
-        setSelectedMeasurement(value)
-        onMeasurementChange(value);
-    };
-
-
-    return(
-
-        <>
-            <tr key={index}>
-                <td><SelectIngredient selection={selectedIngredient} onChange={handleSelectedIngredientChange} /></td>
-                <td><InputQuantity defaultValue={quantityValue} onChange={handleInputQuantityChange} /></td>
-                <td><SelectMeasurement selection={selectedMeasurement} onChange={handleSelectedMeasurementChange} /></td>
-                <td><Button variant="danger" onClick={handleButtonDelete}>Delete</Button> </td>
-            </tr>        
-        </>
-    )
+  return (
+    <>
+      <tr key={index}>
+        <td className="col-6">
+          <SelectIngredient
+            selection={selectedIngredient}
+            onChange={handleSelectedIngredientChange}
+          />
+        </td>
+        <td className="col-1">
+          <InputQuantity
+            defaultValue={quantityValue}
+            onChange={handleInputQuantityChange}
+          />
+        </td>
+        <td className="col-4">
+          <SelectMeasurement
+            selection={selectedMeasurement}
+            onChange={handleSelectedMeasurementChange}
+          />
+        </td>
+        <td className="col-1">
+          <Button variant="danger" onClick={handleButtonDelete}>
+            Delete
+          </Button>
+        </td>
+      </tr>
+    </>
+  );
 }

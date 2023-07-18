@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import Recipe_Table from "../components/recipe/IngredientsTable";
-import Ingredient from "../components/recipe/Ingredient/Ingredient";
+import IngredientsTable from "../components/recipe/IngredientsTable";
+import TextAreaTable from "../components/recipe/textAreaTable/TextAreaTable";
 
 
 export default function Recipe(){
@@ -11,7 +11,7 @@ export default function Recipe(){
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [ingredients, setIngredients] = useState([]);
-    // const [steps, setSteps] = useState([]);
+    const [steps, setSteps] = useState([]);
     const [notes, setNotes] = useState([]);
     const [loading, setLoading] = useState(true); // New loading state
 
@@ -27,9 +27,10 @@ export default function Recipe(){
             const response = await fetch(GETRECIPEENDPOINT);
             const data = await response.json();
     
+            console.log(data);
             setDescription(data.description);
             setIngredients(data.Recipe_Ingredient);
-            // setSteps(data.steps);
+            setSteps(data.steps.stepsList);
             setNotes(data.notes);
             setName(data.name);
             setLoading(false); // Set loading to false once data is received
@@ -40,6 +41,7 @@ export default function Recipe(){
         };
     
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
 
@@ -52,12 +54,11 @@ export default function Recipe(){
         <>
             {/* <Recipe_Header/> */}
             <Container className="p-5">
-                <Recipe_Table ingredientList={ingredients} setIngredients={setIngredients}/>
+                <IngredientsTable ingredientList={ingredients} setIngredients={setIngredients}/>
             </Container>
-    
             <Container>
                 <Container>
-                    {/* {steps} */}
+                    <TextAreaTable contentList={steps} setContent={setSteps} contentName={"Cooking Steps"} ordered={true} />
                 </Container>
                 <Container>
                     {/* {notes} */}
