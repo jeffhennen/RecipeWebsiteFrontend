@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
-import { Button, Col, Container, Row, ToastContainer } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import IngredientsTable from "../components/recipe/IngredientsTable";
 import TextAreaTable from "../components/recipe/textAreaTable/TextAreaTable";
 import Recipe_Header from "../components/recipe/Recipe_Header";
@@ -62,27 +62,26 @@ export default function Recipe(){
         
         <>
             <Recipe_Header defaultName={name} defaultDescription={description} setDescription={setDescription} setName={setName}/>
-            <Container>
+            <Container className="pt-4 pb-4">
                 <IngredientsTable ingredientList={ingredients} setIngredients={setIngredients}/>
             </Container>
-            <Container>
-                <Row >
-
-
-                            <TextAreaTable contentList={steps} setContent={setSteps} contentName={"Steps"} ordered={true} />
-
-
-                            <TextAreaTable contentList={notes} setContent={setNotes} contentName={"Notes"} ordered={false}/>
-
+            <Container className="p-4">
+                <Row > 
+                    <Col>
+                        <TextAreaTable contentList={steps} setContent={setSteps} contentName={"Steps"} ordered={true} />
+                    </Col>  
+                    <Col>
+                        <TextAreaTable contentList={notes} setContent={setNotes} contentName={"Notes"} ordered={false}/>
+                    </Col>
                 </Row>
             </Container>
             <Container className=" pt-3 pb-5">
                 <Row className="d-flex ">
-                    <Col lg={6} className="pb-5">
-                        <Button size="lg" className="col-8 h-100">Save</Button>
+                    <Col className="text-center">
+                        <Button  className="col-10 h-100">Save</Button>
                     </Col>
-                    <Col lg={6} className="pt-5">
-                        <Button variant="danger" size="lg" className="col-8 h-100">Delete Recipe</Button>
+                    <Col className="text-center">
+                        <Button variant="danger" className="col-10 h-100">Delete Recipe</Button>
                     </Col>
                 </Row>
             </Container>

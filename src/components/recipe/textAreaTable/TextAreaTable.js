@@ -1,3 +1,4 @@
+// TextAreaTable.js
 import { useState, useEffect } from "react";
 import { Table, Button } from "react-bootstrap";
 import TextAreaTableItem from "./TextAreaTableItem";
@@ -46,7 +47,7 @@ export default function TextAreaTable({contentList, setContent, contentName, ord
   }
 
   return (
-    <Table className="pt-5 pb-5">
+    <Table>
       <tbody>
         <tr>
           <th className={"text-center"} colSpan={ordered ? 3 : 2}>
@@ -57,7 +58,7 @@ export default function TextAreaTable({contentList, setContent, contentName, ord
         <tr>
           <td colSpan={ordered ? 3 : 2}>
             <Button className="col-12" onClick={onAdd}>
-              {ordered ? "Add Step": "Add Note"}
+              Add {contentName}
             </Button>
           </td>
         </tr>
