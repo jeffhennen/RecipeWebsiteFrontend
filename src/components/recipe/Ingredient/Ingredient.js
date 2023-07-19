@@ -60,7 +60,7 @@ export default function Ingredient({
         </td>
         <td className="col-1">
           <Button variant="danger" onClick={handleButtonDelete}>
-            Delete
+            X
           </Button>
         </td>
       </tr>

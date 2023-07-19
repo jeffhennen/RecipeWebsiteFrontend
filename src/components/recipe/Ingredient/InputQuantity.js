@@ -13,6 +13,6 @@ export default function({defaultValue, onChange}){
 
     return (
 
-        <input type="number" value={quantity} onChange={handleInputQuantityChange} style={{ width: "80px" }}/>
+        <input type="number" value={quantity} onChange={handleInputQuantityChange} className="form-control"/>
     )
 }

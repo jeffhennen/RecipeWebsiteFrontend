@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import Ingredient from "./Ingredient/Ingredient";
 import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import { Button } from "react-bootstrap";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function IngredientsTable({ ingredientList, setIngredients }) {
     const [ingredientComponents, setIngredientComponents] = useState([]);
@@ -13,9 +14,12 @@ export default function IngredientsTable({ ingredientList, setIngredients }) {
 
     function generateIngredientComponents() {
         const tempIngredientComponent = ingredientList.map((ingredient, index) => {
+
+
+            const uniqueKey = ingredient.id || uuidv4();
             return (
                 <Ingredient
-                    key={index}
+                    key={uniqueKey}
                     index={index}
                     measurementSelection={ingredient.measurement}
                     ingredientSelection={ingredient.ingredientId}

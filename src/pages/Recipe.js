@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Col, Container, Row, ToastContainer } from "react-bootstrap";
 import IngredientsTable from "../components/recipe/IngredientsTable";
 import TextAreaTable from "../components/recipe/textAreaTable/TextAreaTable";
+import Recipe_Header from "../components/recipe/Recipe_Header";
 
 
 export default function Recipe(){
@@ -26,12 +27,18 @@ export default function Recipe(){
           try {
             const response = await fetch(GETRECIPEENDPOINT);
             const data = await response.json();
-    
-            console.log(data);
+
             setDescription(data.description);
+
             setIngredients(data.Recipe_Ingredient);
             setSteps(data.steps.stepsList);
-            setNotes(data.notes);
+            if(data.notes.notesList){
+                setNotes(data.notes.notesList);
+            }else{
+                const tempNotes = [""];
+                setNotes(tempNotes);
+            }
+
             setName(data.name);
             setLoading(false); // Set loading to false once data is received
           } catch (error) {
@@ -49,20 +56,35 @@ export default function Recipe(){
         return <div>Loading...</div>; // Render loading indicator if still loading
     }
 
+
+
     return (
         
         <>
-            {/* <Recipe_Header/> */}
-            <Container className="p-5">
+            <Recipe_Header defaultName={name} defaultDescription={description} setDescription={setDescription} setName={setName}/>
+            <Container>
                 <IngredientsTable ingredientList={ingredients} setIngredients={setIngredients}/>
             </Container>
             <Container>
-                <Container>
-                    <TextAreaTable contentList={steps} setContent={setSteps} contentName={"Cooking Steps"} ordered={true} />
-                </Container>
-                <Container>
-                    {/* {notes} */}
-                </Container>
+                <Row >
+
+
+                            <TextAreaTable contentList={steps} setContent={setSteps} contentName={"Steps"} ordered={true} />
+
+
+                            <TextAreaTable contentList={notes} setContent={setNotes} contentName={"Notes"} ordered={false}/>
+
+                </Row>
+            </Container>
+            <Container className=" pt-3 pb-5">
+                <Row className="d-flex ">
+                    <Col lg={6} className="pb-5">
+                        <Button size="lg" className="col-8 h-100">Save</Button>
+                    </Col>
+                    <Col lg={6} className="pt-5">
+                        <Button variant="danger" size="lg" className="col-8 h-100">Delete Recipe</Button>
+                    </Col>
+                </Row>
             </Container>
         </>
     )
