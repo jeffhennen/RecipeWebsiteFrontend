@@ -22,7 +22,7 @@ export default function Recipe(){
 
     
 
-    const GETUPDATERECIPEENDPOINT = `https://Hennenapi.com:3000/api/recipes/${id}`
+    const GETUPDATERECIPEENDPOINT = `https://Hennenapi.com/api/recipes/${id}`
     
     
 

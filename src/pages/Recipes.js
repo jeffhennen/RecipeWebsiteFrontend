@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function Recipes(){
 
-    const GETRECIPECARDENDPOINT= "https://Hennenapi.com:3000/api/recipeCards"
+    const GETRECIPECARDENDPOINT= "https://Hennenapi.com/api/recipeCards"
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
