@@ -6,7 +6,6 @@ export default function Recipe_Header({defaultName, defaultDescription, setDescr
     const [recipeName, setRecipeName] = useState(defaultName);
     const [recipeDescription, setRecipeDescription] = useState(defaultDescription);
 
-    console.log(`RecipeName: ${defaultName}`)
 
     useEffect( () =>{
 

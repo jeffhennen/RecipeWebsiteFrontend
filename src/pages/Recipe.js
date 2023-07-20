@@ -32,23 +32,17 @@ export default function Recipe(){
             const response = await fetch(GETUPDATERECIPEENDPOINT);
             const data = await response.json();
 
-
-            console.log("Fetch Recipe");
-            console.log(data);
             setDescription(data.description);
             setIngredients(data.Recipe_Ingredient);
+            setName(data.name);
             setSteps(data.steps.stepsList);
+            
             if(data.notes.notesList){
                 setNotes(data.notes.notesList);
             }else{
                 const tempNotes = [""];
                 setNotes(tempNotes);
-            }
-
-            setName(data.name);
-            console.log("Before Setting name");
-            console.log(name);
-            setLoading(false); // Set loading to false once data is received
+            }            
           } catch (error) {
             if (!loading) {
                 alert('Error:', error);
