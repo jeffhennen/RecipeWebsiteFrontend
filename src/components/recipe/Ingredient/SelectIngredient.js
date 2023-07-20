@@ -7,7 +7,7 @@ export default function SelectIngredient({selection, onChange}){
     const [selectedValue, setSelectedValue] = useState(selection ? selection: null);
     const [ingredients, setIngredients] = useState();
 
-    const GETRECIPEENDPOINT = `http://Hennenapi.com:3000/api/Ingredients`
+    const GETRECIPEENDPOINT = `https://Hennenapi.com/api/Ingredients`
 
     useEffect( () =>{
 
