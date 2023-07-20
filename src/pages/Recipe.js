@@ -46,6 +46,8 @@ export default function Recipe(){
             }
 
             setName(data.name);
+            console.log("Before Setting name");
+            console.log(name);
             setLoading(false); // Set loading to false once data is received
           } catch (error) {
             if (!loading) {
