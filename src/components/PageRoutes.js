@@ -17,7 +17,8 @@ export default function PageRoutes(){
             <Route path="/newRecipe" element={<AddRecipe />} />
             <Route path="/Ingredients" element={<Ingredients />} />
             <Route path="/About" element={<About />} />
-            <Route path='/*' element={<Navigate to="/"/>} /> 
+            <Route path='/*' element={<Navigate to="/"/>} />
+            <Route path='*' element={<NotFound/>} />
         </Routes>
     )
 }
