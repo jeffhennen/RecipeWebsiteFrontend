@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import Home from "../pages/Home"
 import Recipes from "../pages/Recipes"
 import Recipe from "../pages/Recipe"
@@ -17,7 +17,7 @@ export default function PageRoutes(){
             <Route path="/newRecipe" element={<AddRecipe />} />
             <Route path="/Ingredients" element={<Ingredients />} />
             <Route path="/About" element={<About />} />
-            <Route path='*' element={<NotFound />} /> 
+            <Route path='/*' element={<Navigate to="/"/>} /> 
         </Routes>
     )
 }
