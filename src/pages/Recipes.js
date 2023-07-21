@@ -39,15 +39,15 @@ export default function Recipes(){
 
     return (
         <>
-        <Container fluid>
-            <Container className="justify-content-center">
-                <h1 className="text-center pt-5 pb-5">Welcome to the Recipes Page</h1>
-                <p className="text-center">This page has all the corresponding recipes that are currently in our database, please click any of the corresponding recipes to navigate to their corresponding page.</p>
+            <Container fluid>
+                <Container className="justify-content-center">
+                    <h1 className="text-center pt-5 pb-5">Welcome to the Recipes Page</h1>
+                    <p className="text-center">This page has all the corresponding recipes that are currently in our database, please click any of the corresponding recipes to navigate to their corresponding page.</p>
+                </Container>
+                <CardGroup className="">
+                    {cards}
+                </CardGroup>
             </Container>
-            <CardGroup className="">
-                {cards}
-            </CardGroup>
-        </Container>
 
         </>
     )
