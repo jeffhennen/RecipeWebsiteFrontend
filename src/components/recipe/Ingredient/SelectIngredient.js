@@ -11,32 +11,37 @@ export default function SelectIngredient({selection, onChange}){
 
     useEffect( () =>{
 
-        fetch(GETRECIPEENDPOINT)
-        .then(response => response.json())
-        .then(data => {
+        fetchIngredients();
+    }, [])
 
-            const ingredientOptions = data.map(ingredient => {
-
-                return(
-                    <Option key={ingredient.id} value={ingredient.id} label={ingredient.name}/>
-                )
-            })
-
-            setIngredients(ingredientOptions);
-
-            if(selectedValue == null){
-                setSelectedValue(ingredientOptions[0].props.value);
-                onChange(ingredientOptions[0].props.value);
-            }
-        })
-        .catch(error => {
+    async function fetchIngredients() {
+        try {
+          const response = await fetch(GETRECIPEENDPOINT);
+          const data = await response.json();
+      
+          const ingredientOptions = data.map(ingredient => {
+            return (
+              <Option key={ingredient.id} value={ingredient.id} label={ingredient.name}/>
+            );
+          });
+      
+          setIngredients(ingredientOptions);
+      
+          if (selectedValue == null && ingredientOptions.length > 0) {
+            setSelectedValue(ingredientOptions[0].props.value);
+            onChange(ingredientOptions[0].props.value);
+          }
+        } catch (error) {
           // Handle any errors
           console.error('Error:', error);
-        });
-    })
+        }
+      }
+      
 
 
     const handleIngredientChange = (event) =>{
+
+        fetchIngredients();
         const value = event.target.value;
 
         setSelectedValue(value);
