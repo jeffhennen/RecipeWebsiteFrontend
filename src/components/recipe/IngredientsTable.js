@@ -16,7 +16,7 @@ export default function IngredientsTable({ ingredientList, setIngredients }) {
         const tempIngredientComponent = ingredientList.map((ingredient, index) => {
 
 
-            const uniqueKey = ingredient.id || uuidv4();
+            const uniqueKey = ingredient.id || ingredient.uuid;
             return (
                 <Ingredient
                     key={uniqueKey}
@@ -63,6 +63,7 @@ export default function IngredientsTable({ ingredientList, setIngredients }) {
         const newList = [...ingredientList];
         newList.push({
             id: '',
+            uuid: uuidv4(),
             recipeId: 1,
             ingredientId: '',
             quantity: 0,

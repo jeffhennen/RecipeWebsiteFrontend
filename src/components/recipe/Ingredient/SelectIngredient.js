@@ -11,7 +11,12 @@ export default function SelectIngredient({selection, onChange}){
 
     useEffect( () =>{
 
-        fetch(GETRECIPEENDPOINT)
+        fetchIngredients();
+    }, [])
+
+    async function fetchIngredients(){
+
+        await fetch(GETRECIPEENDPOINT)
         .then(response => response.json())
         .then(data => {
 
@@ -24,7 +29,7 @@ export default function SelectIngredient({selection, onChange}){
 
             setIngredients(ingredientOptions);
 
-            if(selectedValue == null){
+            if(selectedValue == null && ingredientOptions.length > 0){
                 setSelectedValue(ingredientOptions[0].props.value);
                 onChange(ingredientOptions[0].props.value);
             }
@@ -32,11 +37,13 @@ export default function SelectIngredient({selection, onChange}){
         .catch(error => {
           // Handle any errors
           console.error('Error:', error);
-        });
-    })
+        })
+    }
 
 
     const handleIngredientChange = (event) =>{
+
+        fetchIngredients();
         const value = event.target.value;
 
         setSelectedValue(value);
