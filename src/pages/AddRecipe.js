@@ -21,7 +21,7 @@ export default function AddRecipe(){
 
     
 
-    const GETCREATERECIPEENDPOINT = `http://HennenApi.com/api/recipes/addRecipe`
+    const GETCREATERECIPEENDPOINT = `https://HennenApi.com/api/recipes/addRecipe`
     
 
     async function createRecipe(){
