@@ -5,7 +5,7 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.css'
 import { Button } from "react-bootstrap";
 import { v4 as uuidv4 } from 'uuid';
 
-export default function IngredientsTable({ ingredientList, setIngredients }) {
+export default function IngredientsTable({ recipeId, ingredientList, setIngredients }) {
     const [ingredientComponents, setIngredientComponents] = useState([]);
 
     useEffect(() => {
@@ -64,7 +64,7 @@ export default function IngredientsTable({ ingredientList, setIngredients }) {
         newList.push({
             id: '',
             uuid: uuidv4(),
-            recipeId: 1,
+            recipeId: recipeId,
             ingredientId: '',
             quantity: 0,
             measurement: ''

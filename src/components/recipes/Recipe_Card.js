@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Recipe_Card({id, name, description, img}){
     return(
-        <Link to={`/recipes/${id}`} className="recipe-card-link col-sm-3 p-2">
+        <Link to={`/recipes/${id}`} className="recipe-card-link col-sm-3 p-2 h-100">
             <Card className="recipe-card">
                 <CardImg>{img}</CardImg>
                 <Card.Body>
