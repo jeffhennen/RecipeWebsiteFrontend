@@ -1,10 +1,10 @@
 import { CardGroup, Container } from "react-bootstrap";
-import Recipe_Card from "../components/recipes/Recipe_Card";
+import RecipeCard from "../components/recipes/Recipe_Card";
 import { useEffect, useState } from "react";
 
 export default function Recipes(){
 
-    const GETRECIPECARDENDPOINT= "https://Hennenapi.com/api/recipeCards"
+    const GETRECIPECARDENDPOINT= "http://HennenAPI.com/api/recipeCards"
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function Recipes(){
             console.log("return statement Fetch");
                 return(
                   
-                  <Recipe_Card 
+                  <RecipeCard 
                     key={card.id}
                     id={card.id}
                     name={card.name}
@@ -44,7 +44,7 @@ export default function Recipes(){
                     <h1 className="text-center pt-5 pb-5">Welcome to the Recipes Page</h1>
                     <p className="text-center">This page has all the corresponding recipes that are currently in our database, please click any of the corresponding recipes to navigate to their corresponding page.</p>
                 </Container>
-                <CardGroup className="">
+                <CardGroup className="fluid">
                     {cards}
                 </CardGroup>
             </Container>

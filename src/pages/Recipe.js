@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import IngredientsTable from "../components/recipe/IngredientsTable";
 import TextAreaTable from "../components/recipe/textAreaTable/TextAreaTable";
-import Recipe_Header from "../components/recipe/Recipe_Header";
+import RecipeHeader from "../components/recipe/RecipeHeader";
 
 
 
@@ -65,7 +65,7 @@ export default function Recipe(){
 
         const newIngredients = ingredients.map((ingredient) =>{ 
 
-            if(ingredient.id == ""){
+            if(ingredient.id === ""){
                 return ({
                     recipeId: id,
                     ingredientId: ingredient.ingredientId,
@@ -146,9 +146,9 @@ export default function Recipe(){
     return (
         
         <>
-            <Recipe_Header defaultName={name} defaultDescription={description} setDescription={setDescription} setName={setName}/>
+            <RecipeHeader defaultName={name} defaultDescription={description} setDescription={setDescription} setName={setName}/>
             <Container className="pt-4 pb-4">
-                <IngredientsTable ingredientList={ingredients} setIngredients={setIngredients}/>
+                <IngredientsTable recipeId={id} ingredientList={ingredients} setIngredients={setIngredients}/>
             </Container>
             <Container className="p-4">
                 <Row > 

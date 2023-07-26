@@ -7,12 +7,12 @@ export default function SelectIngredient({selection, onChange}){
     const [selectedValue, setSelectedValue] = useState(selection ? selection: null);
     const [ingredients, setIngredients] = useState();
 
-    const GETRECIPEENDPOINT = `https://Hennenapi.com/api/Ingredients`
+    const GETRECIPEENDPOINT = `https://HennenApi.com/api/Ingredients`
 
     useEffect( () =>{
 
         fetchIngredients();
-    }, [])
+    }, [selection])
 
     async function fetchIngredients() {
         try {

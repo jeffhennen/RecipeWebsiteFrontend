@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import IngredientsTable from "../components/recipe/IngredientsTable";
 import TextAreaTable from "../components/recipe/textAreaTable/TextAreaTable";
-import Recipe_Header from "../components/recipe/Recipe_Header";
+import RecipeHeader from "../components/recipe/RecipeHeader";
 
 
 
@@ -21,12 +21,12 @@ export default function AddRecipe(){
 
     
 
-    const GETCREATERECIPEENDPOINT = `http://localhost:3001/api/recipes/addRecipe`
+    const GETCREATERECIPEENDPOINT = `http://HennenApi.com/api/recipes/addRecipe`
     
 
     async function createRecipe(){
 
-        console.log(steps);
+        
         const newRecipe = {
 
             name: name,
@@ -39,6 +39,8 @@ export default function AddRecipe(){
                 notesList: notes
             }
         }
+
+        console.log(newRecipe);
 
 
         try {
@@ -68,7 +70,7 @@ export default function AddRecipe(){
     return (
         
         <>
-            <Recipe_Header defaultName={name} defaultDescription={description} setDescription={setDescription} setName={setName}/>
+            <RecipeHeader defaultName={name} defaultDescription={description} setDescription={setDescription} setName={setName}/>
             <Container className="pt-4 pb-4">
                 <IngredientsTable ingredientList={ingredients} setIngredients={setIngredients}/>
             </Container>

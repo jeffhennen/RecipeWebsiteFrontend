@@ -1,7 +1,6 @@
-import { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-export default function Recipe_Header({ defaultName, defaultDescription, setDescription, setName, setImg }) {
+export default function RecipeHeader({ defaultName, defaultDescription, setDescription, setName, setImg }) {
 
   function handleNameChange(event) {
     setName(event.target.value);
