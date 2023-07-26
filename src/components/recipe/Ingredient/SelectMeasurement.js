@@ -24,7 +24,8 @@ export default function SelectMeasurement({ selection, onChange }) {
     { label: 'Dash', value: 'Dash' },
   ];
 
-  measurements.sort();
+  // Sort the measurements array alphabetically by the label property
+  measurements.sort((a, b) => a.label.localeCompare(b.label));
 
   useEffect(() => {
 
