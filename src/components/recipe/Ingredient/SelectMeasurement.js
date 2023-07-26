@@ -20,7 +20,12 @@ export default function SelectMeasurement({ selection, onChange }) {
     { label: 'Kilogram (kg)', value: 'kg' },
     { label: 'Milliliter (ml)', value: 'ml' },
     { label: 'Liter (l)', value: 'l' },
+    { label: 'Units', value: 'Units' },
+    { label: 'Dash', value: 'Dash' },
   ];
+
+  // Sort the measurements array alphabetically by the label property
+  measurements.sort((a, b) => a.label.localeCompare(b.label));
 
   useEffect(() => {
 
