@@ -20,7 +20,11 @@ export default function SelectMeasurement({ selection, onChange }) {
     { label: 'Kilogram (kg)', value: 'kg' },
     { label: 'Milliliter (ml)', value: 'ml' },
     { label: 'Liter (l)', value: 'l' },
+    { label: 'Units', value: 'Units' },
+    { label: 'Dash', value: 'Dash' },
   ];
+
+  measurements.sort();
 
   useEffect(() => {
 
